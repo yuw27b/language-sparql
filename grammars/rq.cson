@@ -1,0 +1,108 @@
+'name': 'SPARQL'
+'scopeName': 'source.rq'
+'fileTypes': [
+  'rq'
+]
+'patterns': [
+  {
+    "name": "keyword.sparql",
+    "comment": "Keywords",
+    "match": "\\b(?i:base|prefix|select|distinct|reduced|from|named|construct|ask|describe|where|graph|bind|as|filter|optional|union|order|by|limit|offset|values|insert data|delete data|with|delete|insert|clear|silent|default|all|create|drop|copy|move|add|to|using|service|not exists|exists|not in|in|minus)\\b",
+  },
+  {
+    "name": "support.function.sparql",
+    "comment":  "SPARQL built-in functions",
+    "match": "\\b(?i:concat|regex|asc|desc|bound|isiri|isuri|isblank|isliteral|str|lang|datatype|sameterm|langmatches|avg|count|group_concat|separator|max|min|sample|sum|iri|bnode|strdt|uuid|struuid|strlen|strlen|strlen|substr|ucase|lcase|strstarts|strends|contains|strbefore|strafter|encode_for_uri|replace|abs|round|ceil|floor|rand|now|year|month|day|hours|minutes|seconds|timezone|tz|md5|sha1|sha256|sha384|sha512|coalesce|if)\\b"
+  },
+  {
+    "name": "string.uri.sparql",
+    "comment": "URI",
+    "match": "<[^<>\"{}|^`\\]\\\\]*>"
+  },
+  {
+    "name": "constant.complex.sparql",
+    "comment": "Prefix / prefixed URI",
+    "match": "(\\w*:)([^\\s|/^*?+{}()]*)",
+    "captures": {
+      "1": {
+        "name": "constant.other.sparql"
+      },
+      "2": {
+        "name": "entity.name.class.sparql"
+      }
+    }
+  },
+  {
+    "name": "entity.name.class.rdfs-type.sparql",
+    "comment": "The special triple predicate 'a'",
+    "match": "\\sa\\s"
+  },
+  {
+    "name": "variable.other.sparql",
+    "match": "(?<!\\w)[?$]\\w+"
+  },
+  {
+    "name": "literal.sparql",
+    "comment": "Typed literal",
+    "match": "(\"[^\"]*\")(\\^\\^)(<[^<>\"{}|^`\\]\\\\]*>|\\w*:[^\\s)]+)",
+    "captures": {
+      "1": {
+        "name": "string.sparql"
+      },
+      "2": {
+        "name": "keyword.operator.sparql"
+      },
+      "3": {
+        "name": "support.type.sparql"
+      }
+    }
+  },
+  {
+    "name": "string.sparql",
+    "comment": "String literal",
+    "match": "('''(?:(?:'|'')?(?:[^'\\\\]|\\\\[tbnrf\\\"']))*'''|\"\"\"(?:(?:\"|\"\")?([^\"\\\\]|\\\\[tbnrf\\\"']))*\"\"\"|'(?:(?:[^\\x22\\x5C\\xA\\xD])|\\\\[tbnrf\\\"'])*'|\"(?:(?:[^\\x22\\x5C\\xA\\xD])|\\\\[tbnrf\\\"'])*\"|'''.*'''|'[^']*')(@[a-zA-Z-]+)?",
+    "captures": {
+      "1": {
+        "name": "string.sparql"
+      },
+      "2": {
+        "name": "keyword.operator.sparql"
+      },
+      "3": {
+        "name": "support.type.sparql"
+      }
+    }
+  },
+  {
+    "name":  "keyword.operator.range.complex.sparql",
+    "match":  "\\{\\s*(\\d+)?(\\s*(?:,\\s*(\\d+)?)?)+\\s*\\}",
+    "captures": {
+      "1": {
+        "name": "constant.numeric.sparql"
+      },
+      "3": {
+        "name": "constant.numeric.sparql"
+      }
+    }
+  },
+  {
+    "name": "constant.numeric.sparql",
+    "comment": "Numeric literal",
+    "match": "\\b[+-]?(?:\\d+|[0-9]+\\.[0-9]*|\\.[0-9]+(?:[eE][+-]?\\d+)?)\\b"
+  },
+  {
+    "name": "constant.language.sparql",
+    "comment": "Boolean",
+    "match": "\\b(?i:true|false)\\b"
+  },
+  {
+    "name": "keyword.operator.sparql",
+    "comment": "SPARQL operators",
+    "match": "(?:\\|\\||&&|=|!=|<|>|<=|>=|\\*|/|\\+|-|\\||\\^|\\?|\\!)"
+  },
+  {
+    "name": "comment.line.number-sign.sparql",
+    "comment": "Comments",
+    "match": "#.*$"
+  }
+]
