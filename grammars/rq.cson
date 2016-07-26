@@ -7,7 +7,7 @@
   {
     "name": "keyword.sparql",
     "comment": "Keywords",
-    "match": "\\b(?i:base|prefix|select|distinct|reduced|from|named|construct|ask|describe|where|graph|bind|as|filter|optional|union|order|by|group|limit|offset|values|insert data|delete data|with|delete|insert|clear|silent|default|all|create|drop|copy|move|add|to|using|service|not exists|exists|not in|in|minus)\\b",
+    "match": "\\b(?i:base|prefix|define|select|distinct|reduced|from|named|construct|ask|describe|where|graph|bind|as|filter|optional|union|order|by|group|limit|offset|values|insert data|delete data|with|delete|insert|clear|silent|default|all|create|drop|copy|move|add|to|using|service|not exists|exists|not in|in|minus)\\b",
   },
   {
     "name": "support.function.sparql",
